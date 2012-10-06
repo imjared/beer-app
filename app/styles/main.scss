@@ -1,0 +1,13 @@
+@import "_normalize";
+
+body {
+  padding: 0 1%;
+  background: #eee;
+  color: #444;
+}
+
+.entry li {
+  list-style-type: none;
+}
+
+@import "_tools";

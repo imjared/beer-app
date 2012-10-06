@@ -1,0 +1,59 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'yeoman' ]
+info using npm@1.1.1
+info using node@v0.6.10
+verbose /usr/local/bin/node node symlink
+verbose config file /Users/jaredlaser/.npmrc
+verbose config file /usr/local/etc/npmrc
+verbose config file /usr/local/lib/node_modules/npm/npmrc
+silly exec /usr/local/bin/node "/usr/local/lib/node_modules/npm/bin/npm-get-uid-gid.js" "nobody" 20
+silly spawning [ '/usr/local/bin/node',
+silly spawning   [ '/usr/local/lib/node_modules/npm/bin/npm-get-uid-gid.js',
+silly spawning     'nobody',
+silly spawning     20 ],
+silly spawning   null ]
+silly output from getuid/gid {"uid":-2,"gid":20}
+silly output from getuid/gid 
+verbose cache add [ 'yeoman', null ]
+silly cache add: name, spec, args [ undefined, 'yeoman', [ 'yeoman', null ] ]
+verbose parsed url { pathname: 'yeoman', path: 'yeoman', href: 'yeoman' }
+verbose addNamed [ 'yeoman', '' ]
+verbose addNamed [ null, '' ]
+silly name, range, hasData [ 'yeoman', '', false ]
+verbose raw, before any munging yeoman
+verbose url resolving [ 'https://registry.npmjs.org/', './yeoman' ]
+verbose url resolved https://registry.npmjs.org/yeoman
+verbose etag "6ZOX8Z4YSLPP10MSXXJAS4A9E"
+http GET https://registry.npmjs.org/yeoman
+http 304 https://registry.npmjs.org/yeoman
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"6ZOX8Z4YSLPP10MSXXJAS4A9E"',
+silly get cb     date: 'Sat, 06 Oct 2012 02:03:30 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag yeoman from cache
+silly name, range, hasData 2 [ 'yeoman', '', true ]
+silly versions [ 'yeoman', [] ]
+ERR! Error: No compatible version found: yeoman
+ERR! No valid targets found.
+ERR! Perhaps not compatible with your version of node?
+ERR!     at installTargetsError (/usr/local/lib/node_modules/npm/lib/cache.js:488:10)
+ERR!     at next_ (/usr/local/lib/node_modules/npm/lib/cache.js:438:17)
+ERR!     at next (/usr/local/lib/node_modules/npm/lib/cache.js:415:44)
+ERR!     at /usr/local/lib/node_modules/npm/lib/cache.js:408:5
+ERR!     at saved (/usr/local/lib/node_modules/npm/lib/utils/npm-registry-client/get.js:147:7)
+ERR!     at Object.oncomplete (/usr/local/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:231:7)
+ERR! You may report this log at:
+ERR!     <http://github.com/isaacs/npm/issues>
+ERR! or email it to:
+ERR!     <npm-@googlegroups.com>
+ERR! 
+ERR! System Darwin 11.4.2
+ERR! command "node" "/usr/local/bin/npm" "install" "-g" "yeoman"
+ERR! cwd /Users/jaredlaser/Sites/beer-app
+ERR! node -v v0.6.10
+ERR! npm -v 1.1.1
+ERR! message No compatible version found: yeoman
+ERR! message No valid targets found.
+ERR! message Perhaps not compatible with your version of node?
+verbose exit [ 1, true ]
