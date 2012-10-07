@@ -3,42 +3,63 @@
 window.ba || (window.ba = {});
 var ba = window.ba;
 
-ba.feed = 'http://beer/beer-app/app/templates/json_format.php';
+// get a list of all the beers
+ba.obtain = function(){
 
-ba.list = function(){
+  var feed = 'http://beer/beer-app/app/templates/json_format.php';
 
-/*keys:
-    abv, 
-    beerName,
-    brewery,
-    breweryLocation,
-    description,
-    id,
-    isDomestic,
-    rating,
-    serveStyle,
-    style
-    */
-
-  $.getJSON(ba.feed, function(data) {
-    ba.renderList(data);
+  var mydata = [];
+  $.ajax({
+    url: feed,
+    async: false,
+    dataType: 'json',
+    success: function (json) {
+      ba.beers = json;
+    }
   });
 
+  return ba.beers;
 }
 
+// use mustache to render the data
 ba.renderList = function(data) {
+  
+  $main = $('#main');
 
+  $main.fadeOut(200);
+  
   var items = {
       beers: data
   }
+
   var template = $('#itemlist').html();
-  var rendered = Mustache.to_html(template, items);
-  $('#main').html(rendered);
+  
+  // makes it look nicer
+  window.setTimeout(function(){
+    var rendered = Mustache.to_html(template, items);
+    $main.html(rendered);
+    $main.fadeIn(200);
+  }, 200);
+
 }
 
+ba.sortBy = {
+  
+  name: function(){
+    beers = _.sortBy(ba.beers, function(item) {
+        return item.beerName
+    });
+    ba.renderList(beers);
+  }
+
+};
+
+$('#buttons button').on('click',function(){
+  ba.sortBy.name();
+});
 
 jQuery(document).ready(function() {
 
-  ba.list();
+  ba.renderList(ba.obtain);
 
 });
