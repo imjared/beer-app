@@ -4,11 +4,10 @@ window.ba || (window.ba = {});
 var ba = window.ba;
 
 // get a list of all the beers
-ba.obtain = function(){
+ba.obtain = function () {
 
   var feed = 'http://beer/beer-app/app/templates/json_format.php';
 
-  var mydata = [];
   $.ajax({
     url: feed,
     async: false,
@@ -19,46 +18,91 @@ ba.obtain = function(){
   });
 
   return ba.beers;
-}
+};
 
 // use mustache to render the data
-ba.renderList = function(data) {
-  
-  $main = $('#main');
+ba.renderList = function (data) {
+
+  var $main = $('#main');
 
   $main.fadeOut(200);
-  
+
   var items = {
       beers: data
-  }
+  };
 
   var template = $('#itemlist').html();
-  
+
   // makes it look nicer
-  window.setTimeout(function(){
+  window.setTimeout(function () {
     var rendered = Mustache.to_html(template, items);
     $main.html(rendered);
     $main.fadeIn(200);
   }, 200);
 
-}
+};
 
 ba.sortBy = {
-  
-  name: function(){
-    beers = _.sortBy(ba.beers, function(item) {
-        return item.beerName
+
+  name: function () {
+    var beers = _.sortBy(ba.beers, function (item) {
+        return item.beerName;
+    });
+    ba.renderList(beers);
+  },
+
+  abv: function () {
+    var beers = _.sortBy(ba.beers, function (item) {
+        return item.abv;
+    });
+    ba.renderList(beers);
+  },
+
+  breweryLocation: function () {
+    var beers = _.sortBy(ba.beers, function (item) {
+        return item.breweryLocation;
+    });
+    ba.renderList(beers);
+  },
+
+  isDomestic: function () {
+    var beers = _.sortBy(ba.beers, function (item) {
+        return item.isDomestic;
+    });
+    ba.renderList(beers);
+  },
+
+  rating: function () {
+    var beers = _.sortBy(ba.beers, function (item) {
+        return item.rating;
     });
     ba.renderList(beers);
   }
 
 };
 
-$('#buttons button').on('click',function(){
+$('#name').on('click', function () {
   ba.sortBy.name();
 });
 
-jQuery(document).ready(function() {
+$('#abv').on('click', function () {
+  ba.sortBy.abv();
+});
+
+$('#breweryLocation').on('click', function () {
+  ba.sortBy.breweryLocation();
+});
+
+$('#isDomestic').on('click', function () {
+  ba.sortBy.isDomestic();
+});
+
+$('#rating').on('click', function () {
+  ba.sortBy.rating();
+});
+
+
+jQuery(document).ready(function () {
 
   ba.renderList(ba.obtain);
 

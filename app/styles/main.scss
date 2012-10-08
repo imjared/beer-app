@@ -1,3 +1,4 @@
+@import "compass";
 @import "_normalize";
 
 body {
@@ -6,8 +7,20 @@ body {
   color: #444;
 }
 
-.entry li {
-  list-style-type: none;
+
+.entry {
+  display: block;
+  padding: 15px;
+  background: transparentize(#3B5998, 0.9);
+  color: #444;
+  margin: 15px 0;
+  @include border-radius(3px);
+  h1 {
+    margin: 0 0 1em;
+  }
+  li {
+    list-style-type: none;
+  }
 }
 
 @import "_tools";
