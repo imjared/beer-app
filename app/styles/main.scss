@@ -1,12 +1,27 @@
 @import "compass";
 @import "_normalize";
 
+$experimental-support-for-svg: true;
+
 body {
   padding: 0 1%;
   background: #eee;
   color: #444;
 }
 
+#buttons {
+  button {
+    border: none;
+    height: 44px;
+    min-width: 44px;
+    padding: 0 15px;
+    margin: 0 0 5px;
+    text-align: center;
+    color: #444;
+    @include background-image(linear-gradient(rgba(0,0,255,0.4) 25%, transparentize(red, 0.5)));
+    @include border-radius(5px);
+  }
+}
 
 .entry {
   display: block;

@@ -24,19 +24,31 @@
     {{#beers}}
     <article class="entry">
         <h1>{{beerName}}</h1>
+        
+        {{#abv}}
         <li>abv:</span> {{abv}}</li>
-        <li>beerName:</span> {{beerName}}</li>
+        {{/abv}}
+        
         <li>brewery:</span> {{brewery}}</li>
         <li>breweryLocation:</span> {{breweryLocation}}</li>
+        
         {{#description}}
         <li>description:</span> {{description}}</li>
         {{/description}}
+        
         {{#isDomestic}}
         <li>isDomestic:</span> {{isDomestic}}</li>
         {{/isDomestic}}
+        
+        {{#rating}}
         <li>rating:</span> {{rating}}</li>
+        {{/rating}}
+        
         <li>serveStyle:</span> {{serveStyle}}</li>
+        
+        {{#style}}
         <li>style:</span> {{style}}</li>
+        {{/style}}
     </article><!--/.entry-->
     {{/beers}}
     </script>

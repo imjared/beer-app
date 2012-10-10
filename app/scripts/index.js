@@ -6,7 +6,7 @@ var ba = window.ba;
 // get a list of all the beers
 ba.obtain = function () {
 
-  var feed = 'http://beer/beer-app/app/templates/json_format.php';
+  var feed = 'http://beer/templates/json_format.php';
 
   $.ajax({
     url: feed,
@@ -25,7 +25,7 @@ ba.renderList = function (data) {
 
   var $main = $('#main');
 
-  $main.fadeOut(200);
+  // $main.fadeOut(200);
 
   var items = {
       beers: data
@@ -34,11 +34,13 @@ ba.renderList = function (data) {
   var template = $('#itemlist').html();
 
   // makes it look nicer
-  window.setTimeout(function () {
+  var rendered = Mustache.to_html(template, items);
+  $main.html(rendered);
+  /*window.setTimeout(function () {
     var rendered = Mustache.to_html(template, items);
     $main.html(rendered);
-    $main.fadeIn(200);
-  }, 200);
+    // $main.fadeIn(200);
+  }, 200);*/
 
 };
 
@@ -52,9 +54,13 @@ ba.sortBy = {
   },
 
   abv: function () {
-    var beers = _.sortBy(ba.beers, function (item) {
-        return item.abv;
-    });
+    var beers = _.chain(ba.beers)
+      .filter(function(item){
+        if (item.abv != '') {
+          return item.abv;
+        }
+      })
+      .value();
     ba.renderList(beers);
   },
 
