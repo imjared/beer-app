@@ -30,27 +30,7 @@
         </div><!--/#main-->
 
     <script id="itemlist" type="text/template">
-<table>
-    <tr>
-        <th>beerName</th>
-        <th>abv</th>
-        <th>rating</th>
-        <th>locationAbbrev</th>
-        <th>style</th>
-    </tr>
     {{#beers}}
-    <tr>
-        <td>{{beerName}}</td>
-        <td>{{abv}}</td>
-        <td>{{rating}}</td>
-        <td>{{locationAbbrev}}</td>
-        <td>{{style}}</td>
-    </tr>
-    {{/beers}}
-</table>
-    </script>
-
-    <script id="holder" type="text/template">
     <article class="entry">
         <div class="clearfix beer-title">
             <div class="beer-headline">
@@ -94,7 +74,6 @@
                     <h3 class="info-header">Brewery</h3>
                     <h5>{{brewery}}</h5>
                 </div><!--/.more-details-cont-->
-
                 {{#description}}
                 <div class="more-details-cont">
                     <h3 class="info-header">About this brew</h3>
@@ -104,8 +83,8 @@
             </div><!--/.more-details-->
             <a class="more-info" href="#">More Info +</a>
         </div><!--/.details-->
-
     </article><!--/.entry-->
+    {{/beers}}
     </script>
 
     <script src="scripts/vendor/jquery.min.js"></script>
