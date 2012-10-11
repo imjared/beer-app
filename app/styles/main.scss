@@ -4,6 +4,12 @@
 $experimental-support-for-svg: true;
 
 $text: #f2eedb;
+@mixin league {
+  // font-family: "league-gothic",sans-serif;
+  font-family: "alternate-gothic-no-2-d",sans-serif;
+  text-transform: uppercase;
+  font-weight: normal;
+}
 
 body {
   background: #856741;
@@ -15,7 +21,7 @@ body {
   background: #3f2f1a;
   h1 {
     margin: 0;
-    text-transform: uppercase;
+    @include league;
   }
 }
 
@@ -37,7 +43,7 @@ body {
     background: #58442a;
     border: 1px solid #94764f;
     color: $text;
-    text-transform: uppercase;
+    @include league;
     padding: 10px;
     text-align: center;
     font-size: 27px;
@@ -64,12 +70,12 @@ body {
   .beer-title {
     .beer-headline {
       float: left;
-      width: 300px;
+      width: 75%;
     }
     .beer-serve-style {
       background: #58442a;
       height: 70px;
-      width: 70px;
+      width: 19%;
       float: right;
       padding: 10px;
       @include border-radius(3px);
@@ -93,7 +99,7 @@ body {
     // @include box-align(stretch);
     @include box-pack(justify);
     .beer-info-cont {
-      text-transform: uppercase;
+      @include league;
       border-right: 1px solid #9e7e55;
       padding: 0 20px;
       text-align: center;
@@ -115,7 +121,7 @@ body {
       text-align: center;
       display: block;
       padding: 10px;
-      text-transform: uppercase;
+      @include league;
       text-decoration: none;
       border: 1px solid #967851;
       @include border-radius(3px);
@@ -134,7 +140,7 @@ body {
     margin: 0;
   }
   h1 {
-    text-transform: uppercase;
+    @include league;
     font-size: 35px;
   }
   h2 {
@@ -147,7 +153,7 @@ body {
   h3 {
     color: #58442a;
     font-size: 28px;
-    text-transform: uppercase;
+    @include league;
   }
   h4 {
 
