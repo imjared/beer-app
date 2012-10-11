@@ -35,15 +35,18 @@ ba.renderList = function (data) {
   var template = $('#itemlist').html();
 
   // makes it look nicer
-  // var rendered = Mustache.to_html(template, items);
-  // $main.html(rendered);
-  window.setTimeout(function () {
+  var rendered = Mustache.to_html(template, items);
+  $main.html(rendered);
+  ba.moreInfo();  
+  /*window.setTimeout(function () {
     var rendered = Mustache.to_html(template, items);
     $main.html(rendered);
     // $main.fadeIn(200);
-  }, 200);
+  }, 200);*/
 
 };
+
+var sortDirection = '';
 
 ba.sortBy = {
 
@@ -55,13 +58,27 @@ ba.sortBy = {
   },
 
   abv: function () {
+    
     var beers = _.chain(ba.beers)
       .filter(function(item){
         if (item.abv != '') {
           return item.abv;
         }
       })
+      .sortBy(function(item){
+        if ( sortDirection == "up" ) {
+          return (parseInt(item.abv) * -1);
+        } else {
+          return parseInt(item.abv);
+        }
+      })
       .value();
+      console.log(sortDirection);
+      if ( sortDirection == "up" ) {
+        sortDirection = "down";
+      } else {
+        sortDirection = "up";
+      }
     ba.renderList(beers);
   },
 
@@ -104,12 +121,8 @@ $('#rating').on('click', function () {
   ba.sortBy.rating();
 });
 
-
-jQuery(document).ready(function () {
-
-  ba.renderList(ba.obtain);
-
-  $('.details a').on('click', function(e){
+ba.moreInfo = function () {
+  $('.more-info').on('click', function(e){
     e.preventDefault();
     $button = $(this);
     $button.toggleClass('active');
@@ -121,5 +134,11 @@ jQuery(document).ready(function () {
       }
     });
   });
+}
+
+
+jQuery(document).ready(function () {
+
+  ba.renderList(ba.obtain);
 
 });

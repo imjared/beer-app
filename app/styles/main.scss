@@ -200,4 +200,14 @@ body {
   }
 }
 
+th {
+  text-align: left;
+}
+td {
+  width: 10%;
+  &:first-child {
+    width: 35%;
+  }
+}
+
 @import "_tools";
