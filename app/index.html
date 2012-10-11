@@ -8,47 +8,77 @@
     </head>
 
     <body id="home">
-        <div id="buttons">
-            <h2>sort by:</h2>
+        <header id="snapp-head">
+            <h1>Snallygaster Beer Sorter</h1>
+        </header><!--/#snapp-head-->
+        <div id="controls">
+            <input type="search" placeholder="Your favorite style">
             <button id="name" data-sort="name">name</button>
             <button id="abv" data-sort="abv">abv</button>
-            <button id="breweryLocation" data-sort="breweryLocation">breweryLocation</button>
-            <button id="isDomestic" data-sort="isDomestic">isDomestic</button>
+            <button id="locationAbbrev" data-sort="breweryLocation">location</button>
             <button id="rating" data-sort="rating">rating</button>
-        </div><!--/#buttons-->
+            <button id="style" data-sort="style">style</button>
+        </div><!--/#controls-->
 
         <div id="main">
         </div><!--/#main-->
 
     <script id="itemlist" type="text/template">
     {{#beers}}
-    <article class="entry">
-        <h1>{{beerName}}</h1>
-        
-        {{#abv}}
-        <li>abv:</span> {{abv}}</li>
-        {{/abv}}
-        
-        <li>brewery:</span> {{brewery}}</li>
-        <li>breweryLocation:</span> {{breweryLocation}}</li>
-        
-        {{#description}}
-        <li>description:</span> {{description}}</li>
-        {{/description}}
-        
-        {{#isDomestic}}
-        <li>isDomestic:</span> {{isDomestic}}</li>
-        {{/isDomestic}}
-        
-        {{#rating}}
-        <li>rating:</span> {{rating}}</li>
-        {{/rating}}
-        
-        <li>serveStyle:</span> {{serveStyle}}</li>
-        
-        {{#style}}
-        <li>style:</span> {{style}}</li>
-        {{/style}}
+    <article class="entry{{^serveStyle}} no-serveStyle{{/serveStyle}}">
+        <div class="clearfix beer-title">
+            <div class="beer-headline">
+                <h1>{{beerName}}</h1>
+                {{#style}}
+                <h2>{{style}}</h2>
+                {{/style}}
+            </div><!--/.beer-headline-->
+            {{#serveStyle}}
+            <div class="beer-serve-style">
+                <figure class="ir {{serveStyle}}"></figure>
+            </div><!--/.beer-serve-style-->
+            {{/serveStyle}}
+        </div><!--/.beer-title-->
+        <div class="beer-info clearfix">
+
+            {{#locationAbbrev}}
+            <div class="beer-info-cont">
+                <h3 class="info-header">Location</h3>
+                <h4 class="info-specific">{{locationAbbrev}}</h4>
+            </div><!--/.beer-info-cont-->
+            {{/locationAbbrev}}
+
+            {{#rating}}
+            <div class="beer-info-cont">
+                <h3 class="info-header">Rating</h3>
+                <h4 class="info-specific">{{rating}}</h4>
+            </div><!--/.beer-info-cont-->
+            {{/rating}}
+            
+            {{#abv}}
+            <div class="beer-info-cont">
+                <h3 class="info-header">ABV</h3>
+                <h4 class="info-specific">{{abv}}</h4>
+            </div><!--/.beer-info-cont-->
+            {{/abv}}
+        </div><!--/.beer-info-->
+        <div class="details">
+            <div class="more-details">
+                <div class="more-details-cont">
+                    <h3 class="info-header">Brewery</h3>
+                    <h5>{{brewery}}</h5>
+                </div><!--/.more-details-cont-->
+
+                {{#description}}
+                <div class="more-details-cont">
+                    <h3 class="info-header">About this brew</h3>
+                    <p>{{description}}</p>
+                </div><!--/.more-details-cont-->
+                {{/description}}
+            </div><!--/.more-details-->
+            <a href="#">More Info +</a>
+        </div><!--/.details-->
+
     </article><!--/.entry-->
     {{/beers}}
     </script>

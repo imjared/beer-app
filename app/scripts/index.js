@@ -6,7 +6,8 @@ var ba = window.ba;
 // get a list of all the beers
 ba.obtain = function () {
 
-  var feed = 'http://beer/templates/json_format.php';
+  // var feed = 'http://beer/templates/json_format.php';
+  var feed = 'http://beer/beer-app/app/templates/json_format.php';
 
   $.ajax({
     url: feed,
@@ -99,10 +100,6 @@ $('#breweryLocation').on('click', function () {
   ba.sortBy.breweryLocation();
 });
 
-$('#isDomestic').on('click', function () {
-  ba.sortBy.isDomestic();
-});
-
 $('#rating').on('click', function () {
   ba.sortBy.rating();
 });
@@ -111,5 +108,18 @@ $('#rating').on('click', function () {
 jQuery(document).ready(function () {
 
   ba.renderList(ba.obtain);
+
+  $('.details a').on('click', function(e){
+    e.preventDefault();
+    $button = $(this);
+    $button.toggleClass('active');
+    $button.siblings().slideToggle(400,function(){
+      if ($button.hasClass('active')) {
+        $button.text('Less Info -');
+      } else {
+        $button.text('More Info +');
+      }
+    });
+  });
 
 });

@@ -3,38 +3,161 @@
 
 $experimental-support-for-svg: true;
 
+$text: #f2eedb;
+
 body {
-  padding: 0 1%;
-  background: #eee;
-  color: #444;
+  background: #856741;
+  color: $text;
+  overflow: hidden;
 }
 
-#buttons {
-  button {
-    border: none;
-    height: 44px;
-    min-width: 44px;
-    padding: 0 15px;
-    margin: 0 0 5px;
-    text-align: center;
-    color: #444;
-    @include background-image(linear-gradient(rgba(0,0,255,0.4) 25%, transparentize(red, 0.5)));
-    @include border-radius(5px);
+#snapp-head {
+  background: #3f2f1a;
+  h1 {
+    margin: 0;
+    text-transform: uppercase;
   }
+}
+
+#controls {
+  width: 100%;
+  padding: 7px;
+  border-bottom: 1px solid #5e492d;
+  input {
+    background: #8f714a url('/images/icon/search.png') no-repeat 10px center;
+    border: 1px solid #8f714a;
+    padding: 15px 10px 15px 55px;
+    display: block;
+    outline: none;
+    margin: 0 0 7px 0;
+    @include border-radius(3px);
+    @include box-shadow(0 0 0 1px #6c512e inset);
+  }
+  button {
+    background: #58442a;
+    border: 1px solid #94764f;
+    color: $text;
+    text-transform: uppercase;
+    padding: 10px;
+    text-align: center;
+    font-size: 27px;
+    @include border-radius(3px);
+    @include box-shadow(0 0 0 1px #3f2f1a inset);
+  }
+}
+
+#main {
+  padding: 11px 7px;
+  background: #8f714a;
 }
 
 .entry {
-  display: block;
-  padding: 15px;
-  background: transparentize(#3B5998, 0.9);
-  color: #444;
-  margin: 15px 0;
-  @include border-radius(3px);
-  h1 {
-    margin: 0 0 1em;
+  &.no-serveStyle {
+
   }
-  li {
-    list-style-type: none;
+  padding: 15px;
+  margin: 0 0 15px 0;
+  border: 1px solid #9a7c56;
+  background: #856741;
+  @include border-radius(3px);
+  @include box-shadow(0 0 0 1px transparentize(#7b6044, 0.25) inset);
+  .beer-title {
+    .beer-headline {
+      float: left;
+      width: 300px;
+    }
+    .beer-serve-style {
+      background: #58442a;
+      height: 70px;
+      width: 70px;
+      float: right;
+      padding: 10px;
+      @include border-radius(3px);
+      .draft {
+        background: url('/images/icon/tap.png') no-repeat center center;
+        height: 67px;
+      }
+      .cask {
+        background: url('/images/icon/cask.png') no-repeat center center;
+        height: 66px;
+      }
+    }
+  }
+  .beer-info {
+    border-top: 1px solid #9e7e55;
+    border-bottom: 1px solid #9e7e55;
+    padding: 10px 0;
+    margin: 10px 0;
+    @include display-box;
+    @include box-orient(horizontal);
+    // @include box-align(stretch);
+    @include box-pack(justify);
+    .beer-info-cont {
+      text-transform: uppercase;
+      border-right: 1px solid #9e7e55;
+      padding: 0 20px;
+      text-align: center;
+      &:last-child {
+        border-right: none;
+      }
+      .info-specific {
+        font-size: 76px;
+        color: $text;
+        margin: 0;  
+      }
+    }
+  }
+  .details {
+    a {
+      background: #775b39;
+      font-size: 28px;
+      color: #b19561;
+      text-align: center;
+      display: block;
+      padding: 10px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid #967851;
+      @include border-radius(3px);
+      @include box-shadow(0 0 0 1px #624d31 inset);
+    }
+    .more-details {
+      display: none;
+    }
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+  }
+  h1 {
+    text-transform: uppercase;
+    font-size: 35px;
+  }
+  h2 {
+    color: #bca169;
+    font-family: "Myriad Pro", Trebuchet, arial, sans-serif;
+    font-weight: normal;
+    font-style: italic;
+    font-size: 19px;
+  }
+  h3 {
+    color: #58442a;
+    font-size: 28px;
+    text-transform: uppercase;
+  }
+  h4 {
+
+  }
+  h5 {
+    @extend h3;
+    color: $text;
+  }
+  p {
+
   }
 }
 
