@@ -46,7 +46,11 @@ ba.renderList = function (data) {
 
 };
 
-var sortDirection = '';
+var abvSortDirection = '';
+var nameSortDirection = '';
+var styleSortDirection = '';
+var ratingSortDirection = 'up';
+var locationSortDirection = '';
 
 ba.sortBy = {
 
@@ -54,6 +58,14 @@ ba.sortBy = {
     var beers = _.sortBy(ba.beers, function (item) {
         return item.beerName;
     });
+
+    if ( nameSortDirection == "up" ) {
+      nameSortDirection = "down";
+      beers.reverse();
+    } else {
+      nameSortDirection = "up";
+    }
+
     ba.renderList(beers);
   },
 
@@ -66,26 +78,32 @@ ba.sortBy = {
         }
       })
       .sortBy(function(item){
-        if ( sortDirection == "up" ) {
-          return (parseInt(item.abv) * -1);
-        } else {
-          return parseInt(item.abv);
-        }
+        return parseInt(item.abv);
       })
       .value();
-      console.log(sortDirection);
-      if ( sortDirection == "up" ) {
-        sortDirection = "down";
-      } else {
-        sortDirection = "up";
-      }
+
+    if ( abvSortDirection == "up" ) {
+      abvSortDirection = "down";
+      beers.reverse();
+    } else {
+      abvSortDirection = "up";
+    }
+
     ba.renderList(beers);
   },
 
   breweryLocation: function () {
     var beers = _.sortBy(ba.beers, function (item) {
-        return item.breweryLocation;
+        return item.locationAbbrev;
     });
+
+    if ( locationSortDirection == "up" ) {
+      locationSortDirection = "down";
+      beers.reverse();
+    } else {
+      locationSortDirection = "up";
+    }
+
     ba.renderList(beers);
   },
 
@@ -97,9 +115,46 @@ ba.sortBy = {
   },
 
   rating: function () {
-    var beers = _.sortBy(ba.beers, function (item) {
+    var beers = _.chain(ba.beers)
+      .filter(function(item){
+        if (item.rating != '') {
+          return item.rating;
+        }
+      })
+      .sortBy(function(item){
         return item.rating;
-    });
+      })
+      .value();
+
+    if ( ratingSortDirection == "up" ) {
+      ratingSortDirection = "down";
+      beers.reverse();
+    } else {
+      ratingSortDirection = "up";
+    }
+
+    ba.renderList(beers);
+  },
+
+  style: function () {
+    var beers = _.chain(ba.beers)
+      .filter(function(item){
+        if (item.style != '') {
+          return item.style;
+        }
+      })
+      .sortBy(function(item){
+        return item.style;
+      })
+      .value();
+
+    if ( styleSortDirection == "up" ) {
+      styleSortDirection = "down";
+      beers.reverse();
+    } else {
+      styleSortDirection = "up";
+    }
+
     ba.renderList(beers);
   }
 
@@ -113,12 +168,16 @@ $('#abv').on('click', function () {
   ba.sortBy.abv();
 });
 
-$('#breweryLocation').on('click', function () {
+$('#locationAbbrev').on('click', function () {
   ba.sortBy.breweryLocation();
 });
 
 $('#rating').on('click', function () {
   ba.sortBy.rating();
+});
+
+$('#style').on('click', function () {
+  ba.sortBy.style();
 });
 
 ba.moreInfo = function () {
