@@ -10,24 +10,28 @@
     </head>
 
     <body id="home">
-        <header id="snapp-head">
-            <h1>Snallygaster Beer Sorter</h1>
-        </header><!--/#snapp-head-->
-        <div id="controls">
-            <input type="search" placeholder="Your favorite style">
-            <button id="name" data-sort="name">name</button>
-            <button id="abv" data-sort="abv">abv</button>
-            <button id="locationAbbrev" data-sort="breweryLocation">location</button>
-            <button id="rating" data-sort="rating">rating</button>
-            <button id="style" data-sort="style">style</button>
-        </div><!--/#controls-->
+        <div id="fixed-cont">
+            <header id="snapp-head">
+                <h1>Snallygaster Beer Sorter</h1>
+            </header><!--/#snapp-head-->
+            <div id="controls">
+                <input type="search" placeholder="Your favorite style">
+                <div id="buttons-cont">
+                    <button id="name" data-sort="name">name</button>
+                    <button id="abv" data-sort="abv">abv</button>
+                    <button id="locationAbbrev" data-sort="breweryLocation">location</button>
+                    <button id="rating" data-sort="rating">rating</button>
+                    <button id="style" data-sort="style">style</button>
+                </div><!--/#buttons-cont-->
+            </div><!--/#controls-->
+        </div><!--/#fixed-cont-->
 
         <div id="main">
         </div><!--/#main-->
 
     <script id="itemlist" type="text/template">
     {{#beers}}
-    <article class="entry{{^serveStyle}} no-serveStyle{{/serveStyle}}">
+    <article class="entry">
         <div class="clearfix beer-title">
             <div class="beer-headline">
                 <h1>{{beerName}}</h1>

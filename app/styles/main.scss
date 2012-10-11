@@ -12,15 +12,23 @@ $text: #f2eedb;
 }
 
 body {
-  background: #856741;
   color: $text;
   overflow: hidden;
 }
 
+#fixed-cont {
+  background: #856741;
+  position: fixed;
+  height: 181px;
+}
+
 #snapp-head {
   background: #3f2f1a;
+  padding: 10px 10px 5px 10px;
   h1 {
     margin: 0;
+    text-align: center;
+    font-size: 40px;
     @include league;
   }
 }
@@ -36,17 +44,33 @@ body {
     display: block;
     outline: none;
     margin: 0 0 7px 0;
+    width: 79%;
     @include border-radius(3px);
     @include box-shadow(0 0 0 1px #6c512e inset);
+    &::-webkit-input-placeholder {
+      color: #bca169;
+      font-family: "Myriad Pro", Trebuchet, arial, sans-serif;
+      font-weight: normal;
+      font-style: italic;
+      font-size: 19px;
+    }
+
+    &:-moz-placeholder {  
+      color: #bca169;
+      font-family: "Myriad Pro", Trebuchet, arial, sans-serif;
+      font-weight: normal;
+      font-style: italic;
+      font-size: 19px;
+    }
   }
   button {
     background: #58442a;
     border: 1px solid #94764f;
     color: $text;
-    @include league;
-    padding: 10px;
+    padding: 5px 2.25% 0;
     text-align: center;
     font-size: 27px;
+    @include league;
     @include border-radius(3px);
     @include box-shadow(0 0 0 1px #3f2f1a inset);
   }
@@ -54,13 +78,11 @@ body {
 
 #main {
   padding: 11px 7px;
+  margin: 180px 0 0 0;
   background: #8f714a;
 }
 
 .entry {
-  &.no-serveStyle {
-
-  }
   padding: 15px;
   margin: 0 0 15px 0;
   border: 1px solid #9a7c56;
@@ -96,20 +118,16 @@ body {
     margin: 10px 0;
     @include display-box;
     @include box-orient(horizontal);
-    // @include box-align(stretch);
-    @include box-pack(justify);
     .beer-info-cont {
-      @include league;
       border-right: 1px solid #9e7e55;
-      padding: 0 20px;
-      text-align: center;
+      padding: 0 25px;
+      text-align: left;
+      @include league;
+      &:first-child {
+        padding-left: 0;
+      }
       &:last-child {
         border-right: none;
-      }
-      .info-specific {
-        font-size: 76px;
-        color: $text;
-        margin: 0;  
       }
     }
   }
@@ -130,6 +148,15 @@ body {
     .more-details {
       display: none;
     }
+    .more-details-cont {
+      margin: 0 0 1em;
+      p {
+        margin: 0;
+        color: #d1bb8c;
+        font-size: 18px;
+        font-family: "Myriad Pro", sans-serif;
+      }
+    }
   }
   h1,
   h2,
@@ -142,6 +169,7 @@ body {
   h1 {
     @include league;
     font-size: 35px;
+    line-height: 1em;
   }
   h2 {
     color: #bca169;
@@ -153,10 +181,15 @@ body {
   h3 {
     color: #58442a;
     font-size: 28px;
+    line-height: 1em;
     @include league;
   }
   h4 {
-
+    @extend h3;
+    // font-size: 76px;
+    font-size: 60px;
+    color: $text;
+    margin: 0;
   }
   h5 {
     @extend h3;

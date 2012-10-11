@@ -35,13 +35,13 @@ ba.renderList = function (data) {
   var template = $('#itemlist').html();
 
   // makes it look nicer
-  var rendered = Mustache.to_html(template, items);
-  $main.html(rendered);
-  /*window.setTimeout(function () {
+  // var rendered = Mustache.to_html(template, items);
+  // $main.html(rendered);
+  window.setTimeout(function () {
     var rendered = Mustache.to_html(template, items);
     $main.html(rendered);
     // $main.fadeIn(200);
-  }, 200);*/
+  }, 200);
 
 };
 
