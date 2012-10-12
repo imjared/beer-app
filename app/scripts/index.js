@@ -27,7 +27,7 @@ ba.renderList = function (data) {
   var $main = $('#main');
   var timer = 200;
 
-  $main.fadeOut(timer);
+  // $main.fadeOut(timer);
 
   var items = {
       beers: data
@@ -38,13 +38,13 @@ ba.renderList = function (data) {
   // makes it look nicer
   var rendered = Mustache.to_html(template, items);
 
-  // $main.html(rendered);
-  // ba.moreInfo();  
-  window.setTimeout(function () {
+  $main.html(rendered);
+  ba.moreInfo();  
+/*  window.setTimeout(function () {
     var rendered = Mustache.to_html(template, items);
     $main.html(rendered);
     $main.fadeIn(timer);
-  }, timer);
+  }, timer);*/
 
 };
 
