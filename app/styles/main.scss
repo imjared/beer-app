@@ -10,6 +10,16 @@ $text: #f2eedb;
   text-transform: uppercase;
   font-weight: normal;
 }
+@mixin button {
+  color: $text;
+  text-decoration: none;
+  font-size: 12px;
+  background: #8f714a;
+  padding: 5px 10px;
+  position: relative;
+  top: -10px;
+  @include border-radius(30px);
+}
 
 body {
   color: $text;
@@ -24,14 +34,18 @@ body {
   width: 100%;
 }
 
-#snapp-head {
+.snapp-head {
   background: #3f2f1a;
   padding: 10px 10px 5px 10px;
+  position: relative;
   h1 {
     margin: 0;
     text-align: center;
     font-size: 40px;
     @include league;
+    a {
+      @include button;
+    }
   }
 }
 
@@ -41,6 +55,7 @@ body {
   border-bottom: 1px solid #41311d;
   box-shadow: -7px 5px 18px -5px #3F2F1A;
   input {
+    text-transform: capitalize;
     background: #8f714a url('/images/icon/search.png') no-repeat 10px center;
     border: 1px solid #8f714a;
     padding: 15px 10px 15px 55px;
@@ -79,9 +94,15 @@ body {
   }
 }
 
+#about-cont {
+  display: none;
+}
+
 #main {
-  padding: 11px 7px;
-  margin: 180px 0 0 0;
+  #about-cont & {
+    padding-top: 20px;
+  }
+  padding: 194px 7px 11px;
   background: #8f714a;
 }
 
@@ -208,7 +229,11 @@ body {
     color: $text;
   }
   p {
-
+    font-family: "Myriad Pro", sans-serif;
+  }
+  a {
+    color: $text;
+    font-weight: bold;
   }
 }
 

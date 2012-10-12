@@ -10,24 +10,35 @@
     </head>
 
     <body id="home">
-        <div id="fixed-cont">
-            <header id="snapp-head">
-                <h1>Beer Sorter</h1>
-            </header>
-            <div id="controls">
-                <input type="text" class="ui-widget" id="item-search" placeholder="Your favorite beer">
-                <div id="buttons-cont">
-                    <button id="name" data-sort="name">name</button>
-                    <button id="abv" data-sort="abv">abv</button>
-                    <button id="locationAbbrev" data-sort="breweryLocation">location</button>
-                    <button id="rating" data-sort="rating">rating</button>
-                    <button id="style" data-sort="style">style</button>
-                </div><!--/#buttons-cont-->
-            </div><!--/#controls-->
-        </div><!--/#fixed-cont-->
+        <div id="home-cont">
+            <div id="fixed-cont">
+                <header class="snapp-head">
+                    <h1>Beer Sorter <a id="about-btn" class="button" href="#">?</a></h1>
+                </header>
+                <div id="controls">
+                    <input type="text" class="ui-widget" id="item-search" placeholder="Find a beer">
+                    <div id="buttons-cont">
+                        <button id="name" data-sort="name">name</button>
+                        <button id="abv" data-sort="abv">abv</button>
+                        <button id="locationAbbrev" data-sort="breweryLocation">location</button>
+                        <button id="rating" data-sort="rating">rating</button>
+                        <button id="style" data-sort="style">style</button>
+                    </div><!--/#buttons-cont-->
+                </div><!--/#controls-->
+            </div><!--/#fixed-cont-->
 
-        <div id="main">
-        </div><!--/#main-->
+            <div id="main">
+            </div><!--/#main-->
+        </div><!--/#home-cont-->
+
+        <div id="about-cont">
+            <header class="snapp-head">
+                <h1>About <a id="about-btn-close" class="button" href="#">x</a></h1>
+            </header>
+            <div id="main" class="entry">
+                <p>This was designed by <a href="http://www.twitter.com/grafxnerd">Laura</a> and developed by <a href="http://www.twitter.com/imjared">Jared</a> for fun.
+            </div>
+        </div><!--/#about-->
 
     <script id="itemlist" type="text/template">
     {{#beers}}

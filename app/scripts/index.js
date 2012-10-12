@@ -213,6 +213,21 @@ ba.searchResults = function (searchTerm) {
 }
 
 ba.search = function () {
+
+  var $input = $('#item-search');
+  var fieldValue = '';
+
+  $('#item-search').on('keyup', function(){
+    var fieldValue = $('#item-search').val();
+    if ( fieldValue == '' ) {
+      // console.log('zero: ' + fieldValue);
+      ba.renderList(ba.beers);
+    }
+  });
+}
+
+  ba.useAutoComplete = function() {
+
   var searchTerms = [];
   ba.obtain();
   
@@ -220,34 +235,60 @@ ba.search = function () {
     searchTerms.push(item.beerName);
   });
 
-  $('#item-search').autocomplete({
-    source: searchTerms,
-    delay: 300,
-    search: function (event) {
-      ba.filterSearchItems(event.target.value);
-    },
-    select: function (event, ui) {
-      ba.filterSearchItems(event.target.value);
-    }
-  });
-}
+    $('#item-search').autocomplete({
+      source: searchTerms,
+      delay: 300,
+      search: function (event) {
+        ba.filterSearchItems(event.target.value);
+        console.log('search value: ' + event.target.value);
+      },
+      select: function (event, ui) {
+        ba.filterSearchItems(event.target.value);
+      },
+      close: function (event, ui) {
+        ba.filterSearchItems(event.target.value);
+      }
+    });
+  };
 
 ba.filterSearchItems = function (searchText) {
-  
-  // console.log(searchText);
+  // console.log('actual text is: ' + searchText);
+  var lowerCaseText = searchText.toLowerCase();
+  // console.log('lowertext is: ' + lowerCaseText);
+
   var beers = _.filter(ba.beers, function (item) {
       var s = item.beerName;
-      return s.indexOf(searchText) > -1;
+      return s.indexOf(searchText) > -1 || s.indexOf(lowerCaseText) > -1;
   });
 
-  // ba.renderList(beers);
+  // console.log('num beers: ' + beers.length);
   ba.renderList(beers);
 
+}
+
+ba.toggleAbout = function () {
+  $sections = $('#home-cont, #about-cont');
+
+  $('#about-btn, #about-btn-close').on('click', function (e) {
+    e.preventDefault();
+    $sections.fadeToggle(400);
+  });
 }
 
 jQuery(document).ready(function () {
 
   ba.renderList(ba.obtain);
   ba.search();
+  ba.useAutoComplete();
+  ba.toggleAbout();
 
 });
+
+// helpers
+function filterer(string) {
+  var beers = _.filter(ba.beers, function (item) {
+      var s = item.beerName;
+      return s.indexOf(string) > -1;
+  });
+  console.log(beers.length);
+}
