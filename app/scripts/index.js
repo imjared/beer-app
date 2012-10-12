@@ -1,5 +1,11 @@
 // https://spreadsheets.google.com/feeds/list/0AtGV2K5hN9UZdGhKci1IWlNwS2hObU95YTdKN1Z4OEE/1/public/values?alt=json
 
+jQuery.expr[":"].Contains = jQuery.expr.createPseudo(function(arg) {
+    return function( elem ) {
+        return jQuery(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+    };
+});
+
 window.ba || (window.ba = {});
 var ba = window.ba;
 
@@ -195,11 +201,53 @@ ba.moreInfo = function () {
       }
     });
   });
+};
+
+ba.searchResults = function (searchTerm) {
+
+  var filteredItems = $('.entry').filter(function(searchResult) {
+    return $(this).find('.beer-headline h1:Contains(' + searchTerm + ')').length != 0;
+  });
+
+  return filteredItems;
 }
 
+ba.search = function () {
+  var searchTerms = [];
+  ba.obtain();
+  
+  ba.beers.forEach(function (item) {
+    searchTerms.push(item.beerName);
+  });
+
+  $('#item-search').autocomplete({
+    source: searchTerms,
+    delay: 300,
+    search: function (event) {
+      ba.filterSearchItems(event.target.value);
+    },
+    select: function (event, ui) {
+      ba.filterSearchItems(event.target.value);
+    }
+  });
+}
+
+ba.filterSearchItems = function (searchText) {
+  
+  // console.log(searchText);
+  var beers = _.filter(ba.beers, function (item) {
+      var s = item.beerName;
+      return s.indexOf(searchText) > -1;
+  });
+
+  // ba.renderList(beers);
+  ba.renderList(beers);
+
+}
 
 jQuery(document).ready(function () {
 
   ba.renderList(ba.obtain);
+  ba.search();
 
 });

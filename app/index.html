@@ -12,10 +12,10 @@
     <body id="home">
         <div id="fixed-cont">
             <header id="snapp-head">
-                <h1>Snallygaster Beer Sorter</h1>
-            </header><!--/#snapp-head-->
+                <h1>Beer Sorter</h1>
+            </header>
             <div id="controls">
-                <input type="search" placeholder="Your favorite style">
+                <input type="text" class="ui-widget" id="item-search" placeholder="Your favorite beer">
                 <div id="buttons-cont">
                     <button id="name" data-sort="name">name</button>
                     <button id="abv" data-sort="abv">abv</button>
@@ -48,21 +48,21 @@
         <div class="beer-info clearfix">
 
             {{#locationAbbrev}}
-            <div class="beer-info-cont">
+            <div class="beer-info-cont" id="location-cont">
                 <h3 class="info-header">Location</h3>
                 <h4 class="info-specific">{{locationAbbrev}}</h4>
             </div><!--/.beer-info-cont-->
             {{/locationAbbrev}}
 
             {{#rating}}
-            <div class="beer-info-cont">
+            <div class="beer-info-cont" id="rating-cont">
                 <h3 class="info-header">Rating</h3>
                 <h4 class="info-specific">{{rating}}</h4>
             </div><!--/.beer-info-cont-->
             {{/rating}}
             
             {{#abv}}
-            <div class="beer-info-cont">
+            <div class="beer-info-cont" id="abv-cont">
                 <h3 class="info-header">ABV</h3>
                 <h4 class="info-specific">{{abv}}</h4>
             </div><!--/.beer-info-cont-->

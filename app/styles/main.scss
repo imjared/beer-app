@@ -20,7 +20,7 @@ body {
 #fixed-cont {
   background: #856741;
   position: fixed;
-  height: 181px;
+  height: 185px;
   width: 100%;
 }
 
@@ -38,7 +38,8 @@ body {
 #controls {
   width: 100%;
   padding: 7px;
-  border-bottom: 1px solid #5e492d;
+  border-bottom: 1px solid #41311d;
+  box-shadow: -7px 5px 18px -5px #3F2F1A;
   input {
     background: #8f714a url('/images/icon/search.png') no-repeat 10px center;
     border: 1px solid #8f714a;
@@ -86,7 +87,7 @@ body {
 
 .entry {
   padding: 15px;
-  margin: 0 0 15px 0;
+  margin: 0 0 7px 0;
   border: 1px solid #9a7c56;
   background: #856741;
   @include border-radius(3px);
@@ -103,6 +104,7 @@ body {
       float: right;
       padding: 10px;
       @include border-radius(3px);
+      @include box-shadow(0 0 0 1px transparentize(#3f2f1a, 0.25) inset);
       .draft {
         background: url('/images/icon/tap.png') no-repeat center center;
         height: 67px;
@@ -110,6 +112,14 @@ body {
       .cask {
         background: url('/images/icon/cask.png') no-repeat center center;
         height: 66px;
+      }
+      .rubber-gravity-keg {
+        background: url('/images/icon/rubber-gravity.png') no-repeat center center;
+        height:70px;
+      }
+       .wood-gravity-keg {
+        background: url('/images/icon/wood-gravity.png') no-repeat center center;
+        height:70px;
       }
     }
   }
@@ -177,8 +187,8 @@ body {
     color: #bca169;
     font-family: "Myriad Pro", Trebuchet, arial, sans-serif;
     font-weight: normal;
-    font-style: italic;
-    font-size: 19px;
+    text-transform: uppercase;
+    font-size: 15px;
   }
   h3 {
     color: #58442a;
@@ -212,4 +222,5 @@ td {
   }
 }
 
+@import "_jqui.scss";
 @import "_tools";
