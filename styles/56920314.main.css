@@ -261,7 +261,6 @@ body {
 
 #fixed-cont {
   background: #856741;
-  /*position: fixed;*/
   height: 185px;
   width: 100%;
 }
@@ -269,7 +268,9 @@ body {
 .snapp-head {
   background: #3f2f1a;
   padding: 10px 10px 5px 10px;
-  position: relative;
+  position: fixed;
+  width: 100%;
+  height: 56px;
 }
 .snapp-head h1 {
   margin: 0;
@@ -297,7 +298,7 @@ body {
 
 #controls {
   width: 100%;
-  padding: 7px;
+  padding: 56px 7px 7px 7px;
   border-bottom: 1px solid #41311d;
   box-shadow: -7px 5px 18px -5px #3f2f1a;
 }
