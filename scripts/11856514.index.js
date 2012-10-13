@@ -276,6 +276,11 @@ ba.toggleAbout = function () {
     e.preventDefault();
     $sections.toggleClass('hidden');
   });
+
+  $('.snapp-head').on('click', function (e) {
+  	e.preventDefault();
+  	window.scrollTo(0);
+  });
 }
 
 jQuery(document).ready(function () {
