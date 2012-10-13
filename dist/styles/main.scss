@@ -1,0 +1,251 @@
+@import "compass";
+@import "_normalize";
+
+$experimental-support-for-svg: true;
+
+$text: #f2eedb;
+@mixin league {
+  // font-family: "league-gothic",sans-serif;
+  font-family: "alternate-gothic-no-2-d",sans-serif;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+@mixin button {
+  color: $text;
+  text-decoration: none;
+  font-size: 12px;
+  background: #8f714a;
+  padding: 5px 10px;
+  position: relative;
+  top: -10px;
+  @include border-radius(30px);
+}
+
+body {
+  color: $text;
+  overflow: hidden;
+  background: #8f714a;
+}
+
+#fixed-cont {
+  background: #856741;
+  position: fixed;
+  height: 185px;
+  width: 100%;
+}
+
+.snapp-head {
+  background: #3f2f1a;
+  padding: 10px 10px 5px 10px;
+  position: relative;
+  h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 40px;
+    @include league;
+    a {
+      @include button;
+    }
+  }
+}
+
+#controls {
+  width: 100%;
+  padding: 7px;
+  border-bottom: 1px solid #41311d;
+  box-shadow: -7px 5px 18px -5px #3F2F1A;
+  input {
+    text-transform: capitalize;
+    background: #8f714a url('/images/icon/search.png') no-repeat 10px center;
+    border: 1px solid #8f714a;
+    padding: 15px 10px 15px 55px;
+    display: block;
+    outline: none;
+    margin: 0 0 7px 0;
+    width: 79%;
+    @include border-radius(3px);
+    @include box-shadow(0 0 0 1px #6c512e inset);
+    &::-webkit-input-placeholder {
+      color: #bca169;
+      font-family: "Myriad Pro", Trebuchet, arial, sans-serif;
+      font-weight: normal;
+      font-style: italic;
+      font-size: 19px;
+    }
+
+    &:-moz-placeholder {  
+      color: #bca169;
+      font-family: "Myriad Pro", Trebuchet, arial, sans-serif;
+      font-weight: normal;
+      font-style: italic;
+      font-size: 19px;
+    }
+  }
+  button {
+    background: #58442a;
+    border: 1px solid #94764f;
+    color: $text;
+    padding: 5px 2.25% 0;
+    text-align: center;
+    font-size: 27px;
+    @include league;
+    @include border-radius(3px);
+    @include box-shadow(0 0 0 1px #3f2f1a inset);
+  }
+}
+
+#about-cont {
+  display: none;
+}
+
+#main {
+  #about-cont & {
+    padding-top: 20px;
+  }
+  padding: 194px 7px 11px;
+  background: #8f714a;
+}
+
+.entry {
+  padding: 15px;
+  margin: 0 0 7px 0;
+  border: 1px solid #9a7c56;
+  background: #856741;
+  @include border-radius(3px);
+  @include box-shadow(0 0 0 1px transparentize(#7b6044, 0.25) inset);
+  .beer-title {
+    .beer-headline {
+      float: left;
+      width: 75%;
+    }
+    .beer-serve-style {
+      background: #58442a;
+      height: 70px;
+      width: 19%;
+      float: right;
+      padding: 10px;
+      @include border-radius(3px);
+      @include box-shadow(0 0 0 1px transparentize(#3f2f1a, 0.25) inset);
+      .draft {
+        background: url('/images/icon/tap.png') no-repeat center center;
+        height: 67px;
+      }
+      .cask {
+        background: url('/images/icon/cask.png') no-repeat center center;
+        height: 66px;
+      }
+      .rubber-gravity-keg {
+        background: url('/images/icon/rubber-gravity.png') no-repeat center center;
+        height:70px;
+      }
+       .wood-gravity-keg {
+        background: url('/images/icon/wood-gravity.png') no-repeat center center;
+        height:70px;
+      }
+    }
+  }
+  .beer-info {
+    border-top: 1px solid #9e7e55;
+    border-bottom: 1px solid #9e7e55;
+    padding: 10px 0;
+    margin: 10px 0;
+    @include display-box;
+    @include box-orient(horizontal);
+    .beer-info-cont {
+      border-right: 1px solid #9e7e55;
+      padding: 0 25px;
+      text-align: left;
+      @include league;
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+  .details {
+    a {
+      background: #775b39;
+      font-size: 28px;
+      color: #b19561;
+      text-align: center;
+      display: block;
+      padding: 10px;
+      @include league;
+      text-decoration: none;
+      border: 1px solid #967851;
+      @include border-radius(3px);
+      @include box-shadow(0 0 0 1px #624d31 inset);
+    }
+    .more-details {
+      display: none;
+    }
+    .more-details-cont {
+      margin: 0 0 1em;
+      p {
+        margin: 0;
+        color: #d1bb8c;
+        font-size: 18px;
+        font-family: "Myriad Pro", sans-serif;
+      }
+    }
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+  }
+  h1 {
+    @include league;
+    font-size: 35px;
+    line-height: 1em;
+  }
+  h2 {
+    color: #bca169;
+    font-family: "Myriad Pro", Trebuchet, arial, sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    font-size: 15px;
+  }
+  h3 {
+    color: #58442a;
+    font-size: 28px;
+    line-height: 1em;
+    @include league;
+  }
+  h4 {
+    @extend h3;
+    // font-size: 76px;
+    font-size: 60px;
+    color: $text;
+    margin: 0;
+  }
+  h5 {
+    @extend h3;
+    color: $text;
+  }
+  p {
+    font-family: "Myriad Pro", sans-serif;
+  }
+  a {
+    color: $text;
+    font-weight: bold;
+  }
+}
+
+th {
+  text-align: left;
+}
+td {
+  width: 10%;
+  &:first-child {
+    width: 35%;
+  }
+}
+
+@import "_jqui.scss";
+@import "_tools";
