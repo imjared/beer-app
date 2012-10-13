@@ -9,10 +9,6 @@ audio, canvas, video {
   *zoom: 1;
 }
 
-audio:not([controls]) {
-  display: none;
-}
-
 [hidden] {
   display: none;
 }
@@ -261,7 +257,6 @@ body {
 
 #fixed-cont {
   background: #856741;
-  height: 185px;
   width: 100%;
 }
 
@@ -298,7 +293,7 @@ body {
 
 #controls {
   width: 100%;
-  padding: 56px 7px 7px 7px;
+  padding: 78px 7px 7px 7px;
   border-bottom: 1px solid #41311d;
   box-shadow: -7px 5px 18px -5px #3f2f1a;
 }
