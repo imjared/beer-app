@@ -16,3 +16,6 @@ To make edits to this repo, you should install Yeoman..
 4. Once Yeoman is installed, `cd` to your project directory and fire up Yeoman by running `$ yeoman server`. This will launch a local server. To kill the server, use `cmd + c`.
 
 5. Project content lives in the /app directory.
+
+
+Project copyright (c) 2012 Jared Laser
