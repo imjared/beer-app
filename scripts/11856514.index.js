@@ -277,10 +277,28 @@ ba.toggleAbout = function () {
     $sections.toggleClass('hidden');
   });
 
-  $('.snapp-head').on('click', function (e) {
-  	e.preventDefault();
-  	window.scrollTo(0);
-  });
+  if (ba.detectAndroidDevice() != true) {
+      $('.snapp-head').on('click', function (e) {
+        e.preventDefault();
+        window.scrollTo(0);
+      });
+    }
+}
+
+ba.detectAndroidDevice = function () {
+    var ua = navigator.userAgent.toLowerCase();
+    var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
+    var value = '';
+
+    if (isAndroid) {
+      var androidversion = parseFloat(ua.slice(ua.indexOf("Android")+8)); 
+      if (androidversion < 2.3) {
+        value = true;
+      }
+    } else {
+        value = false;
+    }
+    return value;
 }
 
 jQuery(document).ready(function () {
