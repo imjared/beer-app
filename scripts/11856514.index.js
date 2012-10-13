@@ -274,7 +274,7 @@ ba.toggleAbout = function () {
 
   $('#about-btn, #about-btn-close').on('click', function (e) {
     e.preventDefault();
-    $sections.fadeToggle(400);
+    $sections.toggleClass('hidden');
   });
 }
 

@@ -45,7 +45,7 @@
             </div>
         </div><!--/#home-cont-->
 
-        <div id="about-cont">
+        <div id="about-cont" class="hidden">
             <header class="snapp-head">
                 <h1>About <a id="about-btn-close" class="button" href="#">x</a></h1>
             </header>
