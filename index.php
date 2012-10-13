@@ -49,7 +49,7 @@
             <header class="snapp-head">
                 <h1>About <a id="about-btn-close" class="button" href="#">x</a></h1>
             </header>
-            <div class="main entry">
+            <div class="about-main entry">
                 <p>This was designed by <a href="http://www.twitter.com/grafxnerd">Laura</a> and developed by <a href="http://www.twitter.com/imjared">Jared</a> for fun using beer data from <a href="http://snallygasterdc.com/">The Snallygaster Beer Jamboree</a>.</p>
                 <p>Rating data was obtained from <a href="http://www.beeradvocate.com">BeerAdvocate</a> and is based on a scale of 1-100; the higher the better.</p>
                 <p>For app details, check out the repo at <a href="https://github.com/imjared/beer-app">github.com/imjared/beer-app</a>.</p>

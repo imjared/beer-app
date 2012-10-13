@@ -357,7 +357,7 @@ body {
   box-shadow: 0 0 0 1px #3f2f1a inset;
 }
 
-.main {
+.main, .about-main {
   padding: 11px 7px;
   background: #8f714a;
 }
