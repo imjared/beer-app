@@ -1,0 +1,45 @@
+CACHE MANIFEST
+
+# Time: Fri Oct 12 2012 18:57:54 GMT-0400 (EDT)
+# This manifest was created by confess.js, http://github.com/jamesgpearce/confess
+#
+# Retrieved URL: http://localhost:3501/
+# User-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.12 Safari/535.11
+#
+# Config:
+#  task: appcache
+#  userAgent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.12 Safari/535.11
+#  wait: 0
+#  consolePrefix: #
+#  verbose: true
+#  appcache:
+#   urlsFromDocument: true
+#   urlsFromRequests: false
+#   cacheFilter: .*
+#   networkFilter: null
+#  url: http://localhost:3501
+#  configFile: /Users/jaredlaser/nvm/v0.8.1/lib/node_modules/yeoman/lib/support/confess.json
+
+CACHE:
+http://localhost:3501/images/icon/008a3c63.cask.png
+http://localhost:3501/images/icon/5c5c7335.wood-gravity.png
+http://localhost:3501/images/icon/634a2106.tap.png
+http://localhost:3501/images/icon/6c7036cc.search.png
+http://localhost:3501/images/icon/e921bb00.rubber-gravity.png
+http://localhost:3501/styles/images/ui-bg_flat_0_aaaaaa_40x100.png
+http://localhost:3501/styles/images/ui-bg_glass_55_fbf9ee_1x400.png
+http://localhost:3501/styles/images/ui-bg_glass_65_ffffff_1x400.png
+http://localhost:3501/styles/images/ui-bg_glass_75_e6e6e6_1x400.png
+http://localhost:3501/styles/images/ui-bg_glass_95_fef1ec_1x400.png
+http://localhost:3501/styles/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+http://use.typekit.net/c/323fbf/alternate-gothic-no-2-d:n4.TV4:F:2/d?3bb2a6e53c9684ffdc9a9af3135b2a62c9580c6c0a51a7a4dd7b8a278a2bbbafab3833d56270f9b83c60ccd331a8fd4b7d3712346dc94899159dc0
+http://use.typekit.net/sok5ryj.js
+scripts/11856514.index.js
+scripts/vendor/085ba7ec.mustache.js
+scripts/vendor/8bc61845.jquery.min.js
+scripts/vendor/9160f94b.underscore-min.js
+scripts/vendor/b4f386fb.jquery-ui-1.8.24.custom.min.js
+styles/56920314.main.css
+
+NETWORK:
+*
