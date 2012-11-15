@@ -13,7 +13,7 @@ var ba = window.ba;
 ba.obtain = function () {
 
   // var feed = 'http://beer/templates/json_format.php';
-  var feed = 'http://beer/beer-app/app/templates/json_format.php';
+  var feed = '/templates/feed.json';
 
   $.ajax({
     url: feed,
@@ -45,12 +45,7 @@ ba.renderList = function (data) {
   var rendered = Mustache.to_html(template, items);
 
   $main.html(rendered);
-  ba.moreInfo();  
-/*  window.setTimeout(function () {
-    var rendered = Mustache.to_html(template, items);
-    $main.html(rendered);
-    $main.fadeIn(timer);
-  }, timer);*/
+  ba.moreInfo();
 
 };
 
@@ -278,8 +273,6 @@ ba.toggleAbout = function () {
 jQuery(document).ready(function () {
 
   ba.renderList(ba.obtain);
-  ba.search();
-  ba.useAutoComplete();
   ba.toggleAbout();
 
 });

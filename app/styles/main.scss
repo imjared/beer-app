@@ -2,8 +2,8 @@
 @import "_normalize";
 
 $experimental-support-for-svg: true;
-
 $text: #f2eedb;
+
 @mixin league {
   // font-family: "league-gothic",sans-serif;
   font-family: "alternate-gothic-no-2-d",sans-serif;
@@ -45,6 +45,9 @@ body {
     @include league;
     a {
       @include button;
+      &:first-child {
+        margin: 0 1em 0 0;
+      }
     }
   }
 }
